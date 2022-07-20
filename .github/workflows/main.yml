@@ -35,4 +35,4 @@ jobs:
           script: |
             cd /home/git/butenbrodbot
             git pull
-            pm2 reload all
+           # pm2 reload all
