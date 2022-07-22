@@ -66,7 +66,7 @@ def callback_query(call: telebot.types.CallbackQuery):
 
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
-	bot.reply_to(message, "Привет, детектив! Напиши мне, кого или что ты ищешь!")
+	bot.reply_to(message, "Привет, детектив! Напиши, кого или что ты ищешь!")
 
 @bot.message_handler(commands=['map'])
 def send_welcome(message):
