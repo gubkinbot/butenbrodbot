@@ -68,10 +68,10 @@ def callback_query(call: telebot.types.CallbackQuery):
 def send_welcome(message):
 	bot.reply_to(message, "Привет, детектив! Напиши мне, кого или что ты ищешь!")
 
-@bot.message_handler(commands=['office'])
+@bot.message_handler(commands=['map'])
 def send_welcome(message):
     if message.chat.id in ids:
-        bot.reply_to(message, "Список адресов, куда надо поехать")
+        bot.reply_to(message, "https://samorukov.uz/map.pdf")
     else:
         bot.reply_to(message, "Действие доступно только для членов команды")
 
