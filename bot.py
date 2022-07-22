@@ -2,6 +2,13 @@ import telebot
 import pandas as pd
 from fuzzywuzzy import fuzz
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+import yaml
+from os import path as os_path
+
+config_path = os_path.abspath(os_path.join(os_path.dirname(__file__), 'config.yml'))
+config = yaml.safe_load(open(config_path))
+
+bot = telebot.TeleBot(config['TOKEN'])
 
 ids = [2528316, -1001770890678, 263965948, 95700052, 543148778, 1221981431, 245304345, 57180126, 713287828]
 
@@ -43,8 +50,6 @@ def gen_markup(message_text, code):
     markup.row_width = 1
     markup.add(InlineKeyboardButton(message_text, callback_data=code))
     return markup
-
-bot = telebot.TeleBot("5443378980:AAE1rbkzK-5IHyROcUNLso9ipvlZY1Y0VEA")
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_query(call: telebot.types.CallbackQuery):
