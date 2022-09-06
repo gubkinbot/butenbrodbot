@@ -77,7 +77,7 @@ def send_welcome(message):
 
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
-    bot.send_message(chat_id=5601569691, text=message.from_user.first_name + ' ' + message.from_user.last_name + ' ищет: ' + message.text, parse_mode='HTML')
+    bot.send_message(chat_id=5601569691, text=message.from_user.id + ' ищет: ' + message.text, parse_mode='HTML')
     if message.text.find('-') > 0:
         address = summary[summary.address == message.text]
         address_message = f'''<b>Имя: {address.iloc[0]['title']}
